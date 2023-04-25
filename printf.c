@@ -29,15 +29,18 @@ int _printf(const char *format, ...)
 				case 'c':
 					p = va_arg(arg_ptr, int);
 					len1 = len1 + write(1, &p, 1);
+					len1--;
 					break;
 				case 's':
 					str = va_arg(arg_ptr, char *);
 					while (str[m] != '\0')
 						m++;
 					len1 = len1 + write(1, str, m);
+					len1--;
 					break;
 				case '%':
 					len1 = len1 + write(1, &p, 1);
+					len--;
 					break;
 			}
 		}
@@ -45,6 +48,7 @@ int _printf(const char *format, ...)
 		{
 			k = format[args];
 			len = len + write(1, &k, 1);
+			len--;
 		}
 		args++;
 	}
