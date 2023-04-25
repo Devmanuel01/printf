@@ -37,11 +37,20 @@ int _printf(const char *format, ...)
 					len1 = len1 + write(1, str, m);
 					break;
 				case '%':
+					p = '%';
 					len1 = len1 + write(1, &p, 1);
 					break;
 			}
 		}
-		else if (format[args - 1] != '%')
+		else if (format[args - 1] == '%')
+		{
+			if (format[args - 2] == '%')
+			{
+				k = format[args];
+				len = len + write(1, &k, 1);
+			}
+		}
+		else
 		{
 			k = format[args];
 			len = len + write(1, &k, 1);
