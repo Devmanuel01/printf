@@ -37,6 +37,7 @@ int _printf(const char *format, ...)
 					len1 = len1 + write(1, str, m);
 					break;
 				case '%':
+					p = va_arg(arg_ptr, int);
 					len1 = len1 + write(1, &p, 1);
 					break;
 			}
