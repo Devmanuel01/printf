@@ -48,6 +48,5 @@ int _printf(const char *format, ...)
 		}
 		args++;
 	}
-	va_end(arg_ptr);
 	return (len + len1);
 }
