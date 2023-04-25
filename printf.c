@@ -18,7 +18,7 @@ int _printf(const char *format, ...)
 	char *str;
 	char k;
 	int args = 0, len = 0, len1 = 0, m = 0, p;
-	
+
 	va_start(arg_ptr, format);
 	while (format[args] != '\0')
 	{
