@@ -41,7 +41,7 @@ int _printf(const char *format, ...)
 					break;
 			}
 		}
-		else
+		else if (format[args - 1] != '%')
 		{
 			k = format[args];
 			len = len + write(1, &k, 1);
